@@ -3,10 +3,10 @@
 using namespace std;
 
 int search(int elem,int *arr,int n);
-void insertEnd(int elem,int *arr,int n);
-void insertPos(int elem,int pos,int *arr,int n);
-void deleteEnd(int n);
-void deletePos(int pos,int *arr,int n);
+int insertEnd(int elem,int *arr,int n);
+int insertPos(int elem,int pos,int *arr,int n);
+int deleteEnd(int n);
+int deletePos(int pos,int *arr,int n);
 
 int main(void)
 {
@@ -42,7 +42,7 @@ int main(void)
             cin>>elem;
             n = insertEnd(elem,arr,n);
             cout<<"\nChanged List:";
-            for(i=0;i<n;i++)
+            for(int i=0;i<n;i++)
             {
               cout<<arr[i]<<"\n";
             }
@@ -53,7 +53,7 @@ int main(void)
             cin>>elem;
             n=insertPos(elem,pos,arr,n);
             cout<<"\nChanged List:";
-            for(i=0;i<n;i++)
+            for(int i=0;i<n;i++)
             {
               cout<<arr[i]<<"\n";
             }
@@ -88,7 +88,7 @@ int insertEnd(int elem,int *arr,int n)
   return n;
 };
 
-void insertPos(int elem,int pos,int *arr,int n)
+int insertPos(int elem,int pos,int *arr,int n)
 {
   for(int i=n-1;i>=pos;i--)
   {
@@ -105,7 +105,7 @@ int deleteEnd(int n)
   return n;
 };
 
-void deletePos(int pos,int *arr,int n)
+int deletePos(int pos,int *arr,int n)
 {
   for(int i=pos;i<n;i++)
   {
