@@ -11,7 +11,7 @@ int deletePos(int pos,int *arr,int n);
 int main(void)
 {
   int arr[50],n,elem,pos,choice;
-  cout<<"\nEnter the number of desired input elements";
+  cout<<"\nEnter the number of desired input elements: ";
   cin>>n;
   cout<<"\nEnter the elements:\n";
   for(int i=0;i<n;i++)
@@ -49,9 +49,9 @@ int main(void)
             break;
     case 3: cout<<"\nEnter the position where you want to insert the element:";
             cin>>pos;
-            cout<<"\nEnter the element to be inserted at last:";
+            cout<<"\nEnter the element to be inserted:";
             cin>>elem;
-            n=insertPos(elem,pos,arr,n);
+            n=insertPos(elem,pos-1,arr,n);
             cout<<"\nChanged List:";
             for(int i=0;i<n;i++)
             {
@@ -61,10 +61,20 @@ int main(void)
     case 4: cout<<"\nDeleting the last element...";
             n= deleteEnd(n);
             cout<<"\nDeleted";
+            cout<<"\nChanged List:";
+            for(int i=0;i<n;i++)
+            {
+              cout<<arr[i]<<"\n";
+            }
             break;
     case 5: cout<<"\nEnter the position of the element to be deleted:";
             cin>>pos;
-            n = deletePos(pos,arr,n);
+            n = deletePos(pos-1,arr,n);
+            cout<<"\nChanged List:";
+            for(int i=0;i<n;i++)
+            {
+              cout<<arr[i]<<"\n";
+            }
             break;
     default: cout<<"\n***Wrong Input***";
              goto pos;
