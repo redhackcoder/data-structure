@@ -1,23 +1,39 @@
-#include<iostream.h>
+#include<iostream>
+#include<malloc.h>
+using namespace std;
 
 struct node
 {
   int n;
-  node *next;
+  struct node *next;
 };
+
+struct node *start = NULL;
 
 int main(void)
 {
-  
+
 }
 
-bool search(int n, node *list)
+struct node *create_ll(struct node *start)
 {
-  node *ptr = list;
-  while(ptr!=NULL)
+  struct node *new_node, *ptr;
+  int num;
+  cout<<"\nEnter the data: ";
+  cin>>num;
+  new_node=(struct node*)malloc(sizeof(struct node));
+  new_node->data=num;
+  if(start==NULL)
   {
-    if(ptr->n == n) return true;
-    ptr=ptr->next;
+    new_node->next=NULL;
+    start=new_node;
   }
-  return false;
+  else
+  {
+    ptr=start;
+    while(ptr->next!=NULL) ptr=ptr->next;
+    ptr->next=new_node;
+    new_node->next=NULL;
+  }
+  return start;
 }
