@@ -37,3 +37,14 @@ struct node *create_ll(struct node *start)
   }
   return start;
 }
+
+void *display(struct node *start)
+{
+  struct node *ptr;
+  ptr=start;
+  while(ptr!=NULL)
+  {
+    cout<<"\n"<<ptr->data;
+    ptr=ptr->next;
+  }
+}
