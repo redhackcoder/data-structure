@@ -97,3 +97,25 @@ struct node *insert_before(struct node *start)
   new_node->next=ptr;
   return start;
 }
+
+struct node *insert_after(struct node *start)
+{
+  struct node *new_node,*ptr,*preptr;
+  int num,val;
+  cout<<"\nEnter the data:";
+  cin>>num;
+  cout<<"\nEnter the value before which the data is to be inserted:";
+  cin>>val;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  new_node->data=num;
+  ptr=start;
+  preptr=ptr;
+  while(preptr->data!=val)
+  {
+    preptr=ptr;
+    ptr=ptr->next;
+  }
+  preptr->next=new_node;
+  new_node->next=ptr;
+  return start;
+}
