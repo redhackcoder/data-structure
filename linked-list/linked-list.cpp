@@ -4,7 +4,7 @@ using namespace std;
 
 struct node
 {
-  int n;
+  int data;
   struct node *next;
 };
 
@@ -59,5 +59,20 @@ struct node *insert_beg(struct node *start)
   new_node->data=num;
   new_node->next=start;
   start=new_node;
+  return start;
+}
+
+struct node *insert_end(struct node *start)
+{
+  struct node *ptr, *new_node;
+  ptr=start;
+  int num;
+  cout<<"\nEnter the data:";
+  cin>>num;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  new_node->data=num;
+  new_node->next=NULL;
+  while(ptr!=NULL) ptr=ptr->next;
+  ptr->next=new_node;
   return start;
 }
